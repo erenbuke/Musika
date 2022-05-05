@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         admin.password = "123";
         admin.tel = "5452466926";
         admin.username = "admin";
-        admin.id = 0;
 
         User.users.add(admin);
 
@@ -48,36 +47,43 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String uname = username.getText().toString();
-                String pword = password.getText().toString();
+                if(username.getText() != null && password.getText() != null){
 
-                int end = 0;
+                    String uname = username.getText().toString();
+                    String pword = password.getText().toString();
 
-                while(end > -1 && end < User.users.size()){
+                    int end = 0;
 
-                    User user = User.users.get(end);
+                    while(end > -1 && end < User.users.size()){
 
-                    if(user.username.equals(uname) && user.password.equals(pword)){
-                        end = -1;
-                        count = 0;
-                        startActivity(new Intent(MainActivity.this, MainPage.class));
+                        User user = User.users.get(end);
+
+                        if(user.username.equals(uname) && user.password.equals(pword)){
+                            end = -1;
+                            count = 0;
+                            startActivity(new Intent(MainActivity.this, MainPage.class));
+                        }
+                        else{
+                            end++;
+                        }
                     }
-                    else{
-                        end++;
+
+                    if(end == User.users.size() && count < 2){
+                        Toast toast = Toast.makeText(getApplicationContext(), "Wrong Username or Password", Toast.LENGTH_LONG);
+                        toast.show();
+                        count++;
+                    }
+                    else if(count == 2){
+                        Toast toast = Toast.makeText(getApplicationContext(), "Please sign up", Toast.LENGTH_LONG);
+                        toast.show();
+
+                        startActivity(new Intent(MainActivity.this, SignInScreen.class));
                     }
                 }
-
-                if(end == User.users.size() && count < 3){
-                    Toast toast = Toast.makeText(getApplicationContext(), "Wrong Username or Password", Toast.LENGTH_LONG);
-                    toast.show();
-                    count++;
+                else{
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please fill the boxes",Toast.LENGTH_LONG);
                 }
-                else if(count == 3){
-                    Toast toast = Toast.makeText(getApplicationContext(), "Please sign up", Toast.LENGTH_LONG);
-                    toast.show();
 
-                    startActivity(new Intent(MainActivity.this, SignInScreen.class));
-                }
             }
         });
         /*

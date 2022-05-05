@@ -39,6 +39,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     public void onBindViewHolder(ListAdapter.ViewHolder holder, int position) {
         Music song = musics.get(position);
         holder.title.setText(song.name);
+        holder.artist.setText(song.artist);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +65,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView title = itemView.findViewById(R.id.musiclist_text);
+        TextView artist = itemView.findViewById(R.id.musiclist_artist);
         ImageView image = itemView.findViewById(R.id.musiclist_image);
 
         public ViewHolder(View itemView){

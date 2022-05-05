@@ -63,9 +63,9 @@ public class SignInScreen extends AppCompatActivity {
                         Intent sendemail = new Intent(Intent.ACTION_SEND);
 
                         sendemail.putExtra(Intent.EXTRA_EMAIL, new String[]{semail});
-                        sendemail.putExtra(Intent.EXTRA_SUBJECT, "uygulama kayıt");
-                        sendemail.putExtra(Intent.EXTRA_TEXT, susername + "\n" + spassword + "\n" + stel);
-                        sendemail.setData(Uri.parse("mailto:"));
+                        sendemail.putExtra(Intent.EXTRA_SUBJECT, "Sign up Information");
+                        sendemail.putExtra(Intent.EXTRA_TEXT, "Username: " + susername + "\nPassword: " + spassword + "\nPhone: " + stel);
+                        sendemail.setType("message/rfc822");
 
                         Intent chooser = Intent.createChooser(sendemail, "select");
 
@@ -89,9 +89,11 @@ public class SignInScreen extends AppCompatActivity {
                 }
                 else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Please fill all of the boxes", Toast.LENGTH_LONG);
+                    toast.show();
                 }
 
                 //sendemail.setType("message/rfc822");
+                //sendemail.setData(Uri.parse("mailto:"));
             }
         });
     }

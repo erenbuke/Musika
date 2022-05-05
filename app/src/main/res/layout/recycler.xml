@@ -27,7 +27,19 @@
         android:ellipsize="end"
         android:textColor="@color/black"
         android:layout_marginLeft="10dp"
-        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/musiclist_artist"
+        android:layout_toEndOf="@id/musiclist_image"
+        android:layout_below="@id/musiclist_text"
+        tools:text="artist"
+        android:textSize="10dp"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:layout_marginLeft="10dp"
         />
 
 </RelativeLayout>

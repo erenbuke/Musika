@@ -54,7 +54,7 @@ public class MainPage extends AppCompatActivity {
                 MediaStore.Audio.Media.ALBUM,
                 MediaStore.Audio.Media.ARTIST,
                 MediaStore.Audio.Media.DURATION,
-                MediaStore.Audio.Media.DATA,
+                MediaStore.Audio.Media.DATA
         };
 
         String selection = MediaStore.Audio.Media.IS_MUSIC;
